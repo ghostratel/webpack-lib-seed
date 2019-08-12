@@ -8,7 +8,7 @@
 	],
 	"scripts": {
 		"bundle": "webpack --config webpack.dev.js",
-		"dev": "webpack --config webpack.dev.js",
+		"dev": "webpack-dev-server --config webpack.dev.js",
 		"build": "webpack --config webpack.prod.js"
 	},
 	"repository": {
@@ -52,6 +52,7 @@
 		"terser-webpack-plugin": "^1.4.1",
 		"url-loader": "^2.1.0",
 		"webpack": "^4.38.0",
+		"webpack-dev-server": "^3.8.0",
 		"webpack-merge": "^4.2.1"
 	},
 	"browserslist": [

@@ -1,13 +1,21 @@
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const commonConf = require('./webpack.common.js')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 const devConf = {
   mode: 'development',
-  watch: true,
   devtool: 'cheap-module-eval-source-map',
   output: {
     filename: 'index.js',
+  },
+  devServer: {
+    contentBase: 'dist',
+    open: true,
+    hot: true,
+    overlay: true,
+    proxy: {
+    }
   },
   module: {
     rules: [
@@ -43,7 +51,10 @@ const devConf = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin({
+      template: './index.html'
+    })
   ]
 }
 
