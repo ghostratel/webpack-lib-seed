@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, 'src/index.js')
+    index: path.resolve(__dirname, 'src/index.ts')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -9,7 +9,7 @@ module.exports = {
     libraryTarget: 'umd'
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.js', '.ts'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
@@ -28,6 +28,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader'
       },
       {
         test: /\.(svg|jpe?g|gif|png|bmp)$/,
