@@ -2,8 +2,12 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const commonConf = require('./webpack.common.js')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
 
 const devConf = {
+  entry: {
+    index: path.resolve(__dirname, 'index.js')
+  },
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   output: {
@@ -16,39 +20,6 @@ const devConf = {
     overlay: true,
     proxy: {
     }
-  },
-  module: {
-    rules: [
-      {
-        test: /(?<!\.module)\.(scss|css)$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            }
-          },
-          'sass-loader',
-          'postcss-loader'
-        ]
-      },
-      {
-        test: /(?<=\.module)\.(scss|css)$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              modules: true
-            }
-          },
-          'sass-loader',
-          'postcss-loader'
-        ]
-      }
-    ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

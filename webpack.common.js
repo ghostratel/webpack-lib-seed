@@ -1,11 +1,8 @@
 const path = require('path')
 module.exports = {
-  entry: {
-    index: path.resolve(__dirname, 'src/index.ts')
-  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    library: 'myLib',
+    library: 'DWDanmu',
     libraryTarget: 'umd'
   },
   resolve: {
@@ -31,7 +28,39 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loader: 'ts-loader'
+        exclude: /node_modules/,
+        use: [
+          'ts-loader'
+        ]
+      },
+      {
+        test: /(?<!\.module)\.(scss|css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2
+            }
+          },
+          'sass-loader',
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /(?<=\.module)\.(scss|css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: true
+            }
+          },
+          'sass-loader',
+          'postcss-loader'
+        ]
       },
       {
         test: /\.(svg|jpe?g|gif|png|bmp)$/,

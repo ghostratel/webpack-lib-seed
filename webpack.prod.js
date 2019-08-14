@@ -4,41 +4,14 @@ const commonConf = require('./webpack.common.js')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const path = require('path')
 const prodConf = {
+  entry: {
+    index: path.resolve(__dirname, 'src/index.ts')
+  },
   mode: 'production',
   output: {
     filename: 'index.min.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /(?<!\.module)\.(scss|css)$/,
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            }
-          },
-          'sass-loader',
-          'postcss-loader'
-        ]
-      },
-      {
-        test: /(?<=\.module)\.(scss|css)$/,
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              modules: true
-            }
-          },
-          'sass-loader',
-          'postcss-loader'
-        ]
-      }
-    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
