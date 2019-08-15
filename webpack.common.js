@@ -1,8 +1,7 @@
 const path = require('path')
 module.exports = {
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    library: 'DWDanmu',
+    library: 'myLib',
     libraryTarget: 'umd'
   },
   resolve: {
@@ -15,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /myLib\.min\.js/],
         use: [
           'babel-loader',
           {

@@ -6,12 +6,13 @@ const path = require('path')
 
 const devConf = {
   entry: {
-    index: path.resolve(__dirname, 'index.js')
+    index: path.resolve(__dirname, 'demo/index.js')
   },
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   output: {
     filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     contentBase: 'dist',
@@ -24,7 +25,7 @@ const devConf = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
-      template: './index.html'
+      template: path.resolve(__dirname, 'demo/index.html')
     })
   ]
 }

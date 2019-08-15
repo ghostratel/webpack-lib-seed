@@ -11,7 +11,8 @@ const prodConf = {
   },
   mode: 'production',
   output: {
-    filename: 'index.min.js',
+    filename: 'myLib.min.js',
+    path: path.resolve(__dirname, 'lib'),
   },
   plugins: [
     new CleanWebpackPlugin(),
