@@ -11,6 +11,7 @@ const prodConf = {
   },
   mode: 'production',
   output: {
+    // library file name
     filename: 'myLib.min.js',
     path: path.resolve(__dirname, 'lib'),
   },

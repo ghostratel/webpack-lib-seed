@@ -1,6 +1,7 @@
 const path = require('path')
 module.exports = {
   output: {
+    // Global variables when introduced through a script script
     library: 'myLib',
     libraryTarget: 'umd'
   },
@@ -14,6 +15,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
+        // Let the loader ignore the processing of the packaged library
         exclude: [/node_modules/, /myLib\.min\.js/],
         use: [
           'babel-loader',
