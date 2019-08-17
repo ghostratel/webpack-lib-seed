@@ -22,9 +22,7 @@
 		"url": "https://github.com/ghostratel/webpack-lib-seed/issues"
 	},
 	"homepage": "https://github.com/ghostratel/webpack-lib-seed#readme",
-	"dependencies": {
-		"webpack-cli": "^3.3.6"
-	},
+	"dependencies": {},
 	"devDependencies": {
 		"@babel/core": "^7.5.5",
 		"@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -57,6 +55,7 @@
 		"tslint-config-standard": "^8.0.1",
 		"typescript": "^3.5.3",
 		"url-loader": "^2.1.0",
+		"webpack-cli": "^3.3.6",
 		"webpack": "^4.38.0",
 		"webpack-dev-server": "^3.8.0",
 		"webpack-merge": "^4.2.1"
