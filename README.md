@@ -1,5 +1,5 @@
 # webpack-lib-seed
-webpack-lib-seed
+Webpack-library-starter.Out of box.
 
 ## 功能
 
